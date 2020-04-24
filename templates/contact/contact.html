@@ -7,17 +7,18 @@
 	<!-- Page section -->
 	<section class="page-section spad contact-page">
 		<div class="container">
-			<div class="map" id="map-canvas"></div>
+			<div> <img src="{% static 'img/page-top-bg/7.jpg' %}"></div>
 			<div class="row">
 				<div class="col-lg-4 mb-5 mb-lg-0">
 					<h4 class="comment-title">Contact us</h4>
-					<p>Odio ultrices ut. Etiam ac erat ut enim maximus accumsan vel ac nisl. Duis feug iat bibendum orci, non elementum urna. Cras sit amet sapien aliquam.</p>
+					<p> If you have any query, contact us! </p>
+
 					<div class="row">
 						<div class="col-md-9">
 							<ul class="contact-info-list">
-								<li><div class="cf-left">Address</div><div class="cf-right">1481 Creekside Lane Avila Beach, CA 931</div></li>
-								<li><div class="cf-left">Phone</div><div class="cf-right">+53 345 7953 32453</div></li>
-								<li><div class="cf-left">E-mail</div><div class="cf-right">yourmail@gmail.com</div></li>
+								<li><div class="cf-left">Address</div><div class="cf-right">16/2 Gulshan, Dhaka</div></li>
+								<li><div class="cf-left">Phone</div><div class="cf-right">+01744466544</div></li>
+								<li><div class="cf-left">E-mail</div><div class="cf-right">gamezonebd@gmail.com</div></li>
 							</ul>
 						</div>
 					</div>
@@ -31,23 +32,26 @@
 					</div>
 				</div>
 				<div class="col-lg-8">
-					<div class="contact-form-warp">
+                    <div class="contact-form-warp">
 						<h4 class="comment-title">Leave a Reply</h4>
-						<form class="comment-form">
+						<form class="comment-form" action="{% url 'contact' %}" method="POST">
+                            {% csrf_token %}
 							<div class="row">
 								<div class="col-md-6">
-									<input type="text" placeholder="Name">
+									<input name="name" type="text" placeholder="Name">
 								</div>
 								<div class="col-md-6">
-									<input type="email" placeholder="Email">
+									<input name="email" type="email" placeholder="Email">
 								</div>
 								<div class="col-lg-12">
-									<input type="text" placeholder="Subject">
-									<textarea placeholder="Message"></textarea>
+									<input name="subject" type="text" placeholder="Subject">
+									<textarea name="message" placeholder="Message"></textarea>
+                                 <div class="col-md-6">
+									<img name="photo" type="image" placeholder="Attach Image"> <br>
 									<button class="site-btn btn-sm">Send</button>
 								</div>
-							</div>
-						</form>
+							 </div>
+                      </form>
 					</div>
 				</div>
 			</div>

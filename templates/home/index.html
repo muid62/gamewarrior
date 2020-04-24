@@ -8,7 +8,7 @@
 <!-- Hero section -->
 	<section class="hero-section">
 		<div class="hero-slider owl-carousel">
-			<div class="hs-item set-bg" data-setbg="img/slider-1.jpg">
+			<div class="hs-item set-bg" data-setbg="{% static 'img/slider-1.jpg'%}">
 				<div class="hs-text">
 					<div class="container">
 						<h2>The Best <span>Games</span> Out There</h2>
@@ -49,6 +49,8 @@
 	<section class="feature-section spad">
 		<div class="container">
 			<div class="row">
+                 {% if blogs %}
+                            {% for blog in blogs %}
 				<div class="col-lg-3 col-md-6 p-0">
 					<div class="feature-item set-bg" data-setbg="img/features/1.jpg">
 						<span class="cata new">new</span>
@@ -59,36 +61,10 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-3 col-md-6 p-0">
-					<div class="feature-item set-bg" data-setbg="img/features/2.jpg">
-						<span class="cata strategy">strategy</span>
-						<div class="fi-content text-white">
-							<h5><a href="#">Justo tempor, rutrum erat id, molestie</a></h5>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-							<a href="#" class="fi-comment">3 Comments</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-6 p-0">
-					<div class="feature-item set-bg" data-setbg="img/features/3.jpg">
-						<span class="cata new">new</span>
-						<div class="fi-content text-white">
-							<h5><a href="#">Nullam lacinia ex eleifend orci porttitor</a></h5>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-							<a href="#" class="fi-comment">3 Comments</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-6 p-0">
-					<div class="feature-item set-bg" data-setbg="img/features/4.jpg">
-						<span class="cata racing">racing</span>
-						<div class="fi-content text-white">
-							<h5><a href="#">Lacinia ex eleifend orci suscipit</a></h5>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-							<a href="#" class="fi-comment">3 Comments</a>
-						</div>
-					</div>
-				</div>
+                {% endfor %}
+            {% else %}
+                <p> No blog post</p>
+            {% endif %}
 			</div>
 		</div>
 	</section>
