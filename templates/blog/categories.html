@@ -130,7 +130,7 @@
                             {% if latest_comment %}
                             {% for c in latest_comment%}
 							<div class="tc-item">
-                                    <div class="lb-thumb set-bg" data-setbg="{{ c.Porfile.avatar.url }}"></div>
+                                    <div class="tc-thumb set-bg" data-setbg="{{ c.avatar.url }}"></div>
 								<div class="tc-content">
 									<p><a href="#">{{c.name}}</a> <span>on</span> {{c.post}}</p>
 									<div class="tc-date">{{c.date}}</div>

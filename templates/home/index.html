@@ -48,24 +48,28 @@
 	<!-- Feature section -->
 	<section class="feature-section spad">
 		<div class="container">
+
 			<div class="row">
-                 {% if blogs %}
-                            {% for blog in blogs %}
+                {% if latest_blog %}
+                            {% for b in latest_blog %}
+
 				<div class="col-lg-3 col-md-6 p-0">
-					<div class="feature-item set-bg" data-setbg="img/features/1.jpg">
-						<span class="cata new">new</span>
-						<div class="fi-content text-white">
-							<h5><a href="#">Suspendisse ut justo tem por, rutrum</a></h5>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+					<div class="feature-item set-bg" data-setbg={{ b.photo.url}}>
+						<span class="cata new">{{b.category}}</span>
+						<div class=" fi-content text-white visible  ">
+
+							<h5><a href="#">{{ b.name}}</a></h5>
+							<p>{{ b.description }}</p>
 							<a href="#" class="fi-comment">3 Comments</a>
 						</div>
 					</div>
 				</div>
-                {% endfor %}
+              {% endfor %}
             {% else %}
                 <p> No blog post</p>
             {% endif %}
 			</div>
+
 		</div>
 	</section>
 	<!-- Feature section end -->
@@ -89,8 +93,8 @@
 							<p>Lorem ipsum dolor sit amet, consectetur adipisc ing ipsum dolor sit amet, consectetur elit. </p>
 							<a href="#" class="comment">3 Comments</a>
 							<div class="rgi-extra">
-								<div class="rgi-star"><img src="img/icons/star.png" alt=""></div>
-								<div class="rgi-heart"><img src="img/icons/heart.png" alt=""></div>
+								<div class="rgi-star"><img src= "{% static 'img/icons/star.png '%}" alt=""></div>
+								<div class="rgi-heart"><img src="{% static 'img/icons/heart.png' %}" alt=""></div>
 							</div>
 						</div>
 					</div>	
@@ -188,50 +192,24 @@
 				<h2>Recent Reviews</h2>
 			</div>
 			<div class="row">
+                {% if recent_post %}
+                {% for r in recent_post %}
 				<div class="col-lg-3 col-md-6">
 					<div class="review-item">
-						<div class="review-cover set-bg" data-setbg="img/review/1.jpg">
-							<div class="score yellow">9.3</div>
+						<div class="review-cover set-bg" data-setbg="{{ r.photo.url }}">
+							<div class="score yellow">{{r.review_int}}</div>
 						</div>
 						<div class="review-text">
-							<h5>Assasin’’s Creed</h5>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisc ing ipsum dolor sit ame.</p>
+							<h5>{{ r.name }}</h5>
+							<p>{{ r.content}}</p>
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-3 col-md-6">
-					<div class="review-item">
-						<div class="review-cover set-bg" data-setbg="img/review/2.jpg">
-							<div class="score purple">9.5</div>
-						</div>
-						<div class="review-text">
-							<h5>Doom</h5>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisc ing ipsum dolor sit ame.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-6">
-					<div class="review-item">
-						<div class="review-cover set-bg" data-setbg="img/review/3.jpg">
-							<div class="score green">9.1</div>
-						</div>
-						<div class="review-text">
-							<h5>Overwatch</h5>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisc ing ipsum dolor sit ame.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-6">
-					<div class="review-item">
-						<div class="review-cover set-bg" data-setbg="img/review/4.jpg">
-							<div class="score pink">9.7</div>
-						</div>
-						<div class="review-text">
-							<h5>GTA</h5>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisc ing ipsum dolor sit ame.</p>
-						</div>
-					</div>
-				</div>
+                {% endfor %}
+            {% else %}
+                <p> No Recent game here</p>
+            {% endif %}
+
 			</div>
 		</div>
 	</section>

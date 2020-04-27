@@ -40,9 +40,11 @@
               {% for d in data %}
 				<div class="col-md-6">
 					<div class="review-item">
+                     <a img href="{% url 'single_review' d.id %}">
 						 <div class="review-cover set-bg" data-setbg="{{d.photo.url}}">
 							<div class="score yellow">{{d.review_int}}</div>
 						</div>
+                     </a>
 						<div class="review-text">
 							<h3>{{d.name}}</h3>
 							<div class="rating">

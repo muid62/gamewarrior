@@ -46,34 +46,19 @@
 					<div class="footer-widget">
 						<h4 class="fw-title">Top Comments</h4>
 						<div class="top-comment">
+                            {% if top_comment %}
+                            {% for t in top_comment  %}
 							<div class="tc-item">
-								<div class="tc-thumb set-bg" data-setbg="img/authors/1.jpg"></div>
+								<div class="tc-thumb set-bg" data-setbg={{ t.photo.url }}></div>
 								<div class="tc-content">
-									<p><a href="#">James Smith</a> <span>on</span>  Lorem ipsum dolor sit amet, co</p>
-									<div class="tc-date">June 21, 2018</div>
+									<p><a href="#">{{ t.name }}</a> <span>on</span>  {{t.post}}</p>
+									<div class="tc-date">{{t.date}}</div>
 								</div>
 							</div>
-							<div class="tc-item">
-								<div class="tc-thumb set-bg" data-setbg="img/authors/2.jpg"></div>
-								<div class="tc-content">
-									<p><a href="#">James Smith</a> <span>on</span>  Lorem ipsum dolor sit amet, co</p>
-									<div class="tc-date">June 21, 2018</div>
-								</div>
-							</div>
-							<div class="tc-item">
-								<div class="tc-thumb set-bg" data-setbg="img/authors/3.jpg"></div>
-								<div class="tc-content">
-									<p><a href="#">James Smith</a> <span>on</span>  Lorem ipsum dolor sit amet, co</p>
-									<div class="tc-date">June 21, 2018</div>
-								</div>
-							</div>
-							<div class="tc-item">
-								<div class="tc-thumb set-bg" data-setbg="img/authors/4.jpg"></div>
-								<div class="tc-content">
-									<p><a href="#">James Smith</a> <span>on</span>  Lorem ipsum dolor sit amet, co</p>
-									<div class="tc-date">June 21, 2018</div>
-								</div>
-							</div>
+                            {% endfor %}
+                        {% else %}
+                            <p>No Top Comment</p>
+                        {% endif %}
 						</div>
 					</div>
 				</div>

@@ -1,9 +1,8 @@
 from django.shortcuts import render
 from blog.models import Category, Blog
 from django.core.paginator import Paginator
-from forums.views import forum
 from forums.models import Forum
-from account.models import Profile
+
 
 
 # Create your views here.
@@ -15,7 +14,7 @@ def blog(request):
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
-    comments = Forum.objects.all()
+
     latest_comment = Forum.objects.order_by('-date')[:3]
 
     context = {
