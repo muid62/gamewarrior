@@ -6,3 +6,4 @@ class ProfileAdmin(admin.ModelAdmin):
     list_display_links = ('id', 'name',)
 
 admin.site.register(Profile,ProfileAdmin)
+
